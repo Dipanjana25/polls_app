@@ -1,12 +1,41 @@
+<nav>
+    <div class="navbar">
+        <i class="bx bx-menu"></i>
+        <div class="logo"><a href="#">POLLS APP</a></div>
+        <div class="nav-links">
+            <div class="sidebar-logo">
+            <span class="logo_name">POLLS APP</span>
+            <i class="bx bx-x"></i>
+            </div>
+            <ul class="links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Create</a></li>
+            </ul>
+        </div>
+        <!-- <div class="search-box">
+          <i class="bx bx-search"></i>
+          <div class="input-box">
+            <input type="text" placeholder="Search">
+          </div>
+      </div> -->
+    </div>
+</nav>
 {% if latest_question_list %}
     <ul>
+    <div class="dis">
     {% for question in latest_question_list %}
-        <li><a href="/newpoll/{{ question.id }}/">{{ question.question_text }}</a></li>
+        <div class="card">
+            <div class="cont">
+                <li><a href="/newpoll/{{ question.id }}/">{{ question.question_text }}</a></li> 
+            </div>
+        </div>
     {% endfor %}
+    </div>
     </ul>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'newpoll/style.css' %}">
+<link rel="stylesheet" href="/static/newpoll/style.css?{%now "U" %}"/>
+<!-- <link rel="stylesheet" href="/static/css/mycss.css?{% now "U" %}"/> -->
